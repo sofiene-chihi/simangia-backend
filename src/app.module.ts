@@ -10,6 +10,8 @@ import { MenuModule } from './menu/menu.module';
 import { PlatModule } from './plat/plat.module';
 import { Plat } from './plat/plat.entity';
 import { Menu } from './menu/menu.entity';
+import { IngredientModule } from './ingredient/ingredient.module';
+import { Ingredient } from './ingredient/ingredient.entity';
 @Module({
   imports: [
     TypeOrmModule.forRoot({
@@ -19,13 +21,14 @@ import { Menu } from './menu/menu.entity';
       username: 'root',
       password: 'sofiene',
       database: 'simangia',
-      entities: [User,Menu,Plat],
+      entities: [User,Menu,Plat,Ingredient],
       synchronize: true,
     }),
     AuthModule,
     UsersModule,
     MenuModule,
-    PlatModule
+    PlatModule,
+    IngredientModule
   ],
   controllers: [AppController],
   providers: [AppService],
