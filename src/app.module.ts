@@ -6,6 +6,7 @@ import { Connection } from 'typeorm';
 import { UsersModule } from './users/users.module';
 import { User } from './users/user.entity'
 import { AuthModule } from './auth/auth.module';
+import { MenuModule } from './menu/menu.module';
 @Module({
   imports: [
     TypeOrmModule.forRoot({
@@ -19,7 +20,8 @@ import { AuthModule } from './auth/auth.module';
       synchronize: true,
     }),
     AuthModule,
-    UsersModule
+    UsersModule,
+    MenuModule
   ],
   controllers: [AppController],
   providers: [AppService],
