@@ -15,6 +15,7 @@ export class AuthController {
 
   @Post('register')
   async register(@Body() body: RegisterDto) {
+    console.log(body)
     const hashed = await bcrypt.hash(body.password,8);
     const user : any=  await this.usersService.createUser({
       firstName: body.firstName,

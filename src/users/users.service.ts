@@ -40,8 +40,7 @@ export class UsersService {
 
   async getUserCredentials(email: string) {
     const user= await User.findOne({email});
-
-    if(user){
+    if(user != undefined){
       return user
     }else {
       return null;
@@ -49,7 +48,7 @@ export class UsersService {
   }
 
   async createUser(data: RegisterDto): Promise<User>{
-    if(this.getUserCredentials(data.email) != null){
+    if(this.getUserCredentials(data.email)!= null){
       return null;
     }
     const newUser:User = new User();
