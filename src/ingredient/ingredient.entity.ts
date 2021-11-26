@@ -1,6 +1,7 @@
 import { Plat } from '../plat/plat.entity';
 import {
   BaseEntity,
+  Column,
   Entity,
   JoinTable,
   ManyToMany,
@@ -8,10 +9,14 @@ import {
 } from 'typeorm';
 
 @Entity()
-export class Menu extends BaseEntity {
+export class Ingredient extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;
-  @ManyToMany((type) => Plat, plat => plat.menus)
-  @JoinTable()
+  @Column()
+  name: string;
+  @Column()
+  image: string;
+
+  @ManyToMany((type) => Plat, plat=> plat.ingredients)
   plats: Plat[];
 }
