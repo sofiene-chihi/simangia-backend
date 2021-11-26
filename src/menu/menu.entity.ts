@@ -1,11 +1,17 @@
-import { PlatEntity } from './plat.entity';
-import { Entity, JoinTable, ManyToMany, PrimaryGeneratedColumn } from 'typeorm';
+import { Plat } from '../plat/plat.entity';
+import {
+  BaseEntity,
+  Entity,
+  JoinTable,
+  ManyToMany,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 
 @Entity()
-export class MenuEntity {
+export class Menu extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;
-  @ManyToMany((type) => PlatEntity)
+  @ManyToMany((type) => Plat)
   @JoinTable()
-  plats: PlatEntity[];
+  plats: Plat[];
 }

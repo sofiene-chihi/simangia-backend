@@ -7,6 +7,9 @@ import { UsersModule } from './users/users.module';
 import { User } from './users/user.entity'
 import { AuthModule } from './auth/auth.module';
 import { MenuModule } from './menu/menu.module';
+import { PlatModule } from './plat/plat.module';
+import { Plat } from './plat/plat.entity';
+import { Menu } from './menu/menu.entity';
 @Module({
   imports: [
     TypeOrmModule.forRoot({
@@ -16,12 +19,13 @@ import { MenuModule } from './menu/menu.module';
       username: 'root',
       password: 'sofiene',
       database: 'simangia',
-      entities: [User],
+      entities: [User,Menu,Plat],
       synchronize: true,
     }),
     AuthModule,
     UsersModule,
-    MenuModule
+    MenuModule,
+    PlatModule
   ],
   controllers: [AppController],
   providers: [AppService],
