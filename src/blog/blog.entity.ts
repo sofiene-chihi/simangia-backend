@@ -4,25 +4,15 @@ import { User } from 'src/users/user.entity';
 import { BaseEntity, Column, Entity, JoinTable, ManyToMany, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
-export class Plat extends BaseEntity {
+export class Blog extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;
   @Column()
   image: string;
   @Column()
-  name: string;
-  @Column()
-  description: string;
-  @Column()
-  price: number;
+  title: string;
 
-  @ManyToMany((type) => Menu ,menu => menu.plats)
-  menus: Menu[];
-
-  @ManyToMany((type) => User ,user => user.plats)
+  @ManyToMany((type) => User ,user => user.blogs)
   users: User[];
 
-  @ManyToMany((type) => Ingredient, ingredient=> ingredient.plats)
-  @JoinTable()
-  ingredients: Ingredient[];
 }

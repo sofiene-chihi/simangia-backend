@@ -12,6 +12,10 @@ import { Plat } from './plat/plat.entity';
 import { Menu } from './menu/menu.entity';
 import { IngredientModule } from './ingredient/ingredient.module';
 import { Ingredient } from './ingredient/ingredient.entity';
+import { BlogModule } from './blog/blog.module';
+import { ArticleModule } from './article/article.module';
+import { Article } from './article/article.entity';
+import { Blog } from './blog/blog.entity';
 @Module({
   imports: [
     TypeOrmModule.forRoot({
@@ -21,14 +25,16 @@ import { Ingredient } from './ingredient/ingredient.entity';
       username: 'root',
       password: 'sofiene',
       database: 'simangia',
-      entities: [User,Menu,Plat,Ingredient],
+      entities: [User,Menu,Plat,Ingredient,Blog,Article],
       synchronize: true,
     }),
     AuthModule,
     UsersModule,
     MenuModule,
     PlatModule,
-    IngredientModule
+    IngredientModule,
+    BlogModule,
+    ArticleModule
   ],
   controllers: [AppController],
   providers: [AppService],
