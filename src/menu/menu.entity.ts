@@ -1,6 +1,7 @@
 import { Plat } from '../plat/plat.entity';
 import {
   BaseEntity,
+  Column,
   Entity,
   JoinTable,
   ManyToMany,
@@ -11,6 +12,13 @@ import {
 export class Menu extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;
+
+  @Column()
+  name : string;
+
+  @Column()
+  price : string;
+  
   @ManyToMany((type) => Plat, plat => plat.menus)
   @JoinTable()
   plats: Plat[];
