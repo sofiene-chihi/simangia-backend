@@ -4,7 +4,7 @@ import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, JoinColumn, OneToMan
 
 
 @Entity()
-export class User extends BaseEntity{
+export class User{
   @PrimaryGeneratedColumn()
   id: number;
 
