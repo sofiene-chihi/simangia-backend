@@ -42,15 +42,11 @@ export class IngredientController {
   uploadFile(@UploadedFile() file: Express.Multer.File, @Param('id') id) {
     this.ingredientService.updateIngredientImage(file.filename, id);
     const response = {
-    	originalname: file.originalname,
-    	filename: file.filename,
+      originalname: file.originalname,
+      filename: file.filename,
     };
     return response;
   }
-
-
-
-
 
   @Delete(':id')
   delete(@Param('id') id) {
