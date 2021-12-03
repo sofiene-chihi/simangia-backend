@@ -35,14 +35,22 @@ export class IngredientController {
     return this.ingredientService.createIngredient(createIngredientDto);
   }
 
-  @Post('upload')
+  @Post('upload/:id')
   @UseInterceptors(
     FileInterceptor('ingredientImage', { dest: 'uploads/ingredients/' }),
   )
   uploadFile(@UploadedFile() file: Express.Multer.File, @Param('id') id) {
-    console.log(file);
     this.ingredientService.updateIngredientImage(file.filename, id);
+    const response = {
+    	originalname: file.originalname,
+    	filename: file.filename,
+    };
+    return response;
   }
+
+
+
+
 
   @Delete(':id')
   delete(@Param('id') id) {
