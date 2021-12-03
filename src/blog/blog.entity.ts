@@ -4,7 +4,7 @@ import { User } from 'src/users/user.entity';
 import { BaseEntity, Column, Entity, JoinTable, ManyToMany, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
-export class Blog extends BaseEntity {
+export class Blog {
   @PrimaryGeneratedColumn()
   id: number;
   @Column()

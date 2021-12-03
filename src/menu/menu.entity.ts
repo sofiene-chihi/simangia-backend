@@ -9,7 +9,7 @@ import {
 } from 'typeorm';
 
 @Entity()
-export class Menu extends BaseEntity {
+export class Menu {
   @PrimaryGeneratedColumn()
   id: number;
 
