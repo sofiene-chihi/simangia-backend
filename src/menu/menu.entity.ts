@@ -17,7 +17,10 @@ export class Menu {
   name : string;
 
   @Column()
-  price : string;
+  price : number;
+
+  @Column()
+  image : string;
   
   @ManyToMany((type) => Plat, plat => plat.menus)
   @JoinTable()
