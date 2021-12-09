@@ -31,14 +31,12 @@ export class UsersService {
   }
 
   async updateUser(data: RegisterDto, id: number): Promise<User> {
-
     if (await this.userRepository.findOne(id)) {
       await this.userRepository.update(id, data);
       return await this.userRepository.findOne(id);
     }
 
     throw new BadRequestException('product not found !');
-
   }
 
   async getUserCredentials(email: string) {
@@ -51,7 +49,8 @@ export class UsersService {
   }
 
   async createUser(data: RegisterDto): Promise<User> {
-    if (this.getUserCredentials(data.email) != null) {
+    if ((await this.getUserCredentials(data.email)) != null) {
+      console.log('user exists');
       return null;
     }
     const newUser: User = this.userRepository.create(data);
